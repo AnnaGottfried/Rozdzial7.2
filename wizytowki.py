@@ -7,14 +7,18 @@ class BaseContact:
         self.nazwisko = nazwisko
         self.telefon_priv = telefon_priv
         self.email = email
-        self.label_length=len(self.imie)+len(self.nazwisko)
+
+
 
     def contact(self):
         print("Wybieram numer prywatny {} i dzwonię do {} {}".format(self.telefon_priv, self.imie, self.nazwisko))
-        print('dlugość imienia i nazwiska: ', self.label_length)
+        print('dlugość imienia i nazwiska: ',self.label_lenght)
 
-    #def add(self):
-    #    return (len(self.imie)+len(self.nazwisko))
+    @property
+    def label_lenght(self):
+        return len(self.imie)+len(self.nazwisko)
+
+
 
 
 class BusinessContact(BaseContact):
@@ -25,9 +29,13 @@ class BusinessContact(BaseContact):
         self.nazwa_firmy = nazwa_firmy
         self.telefon_business = telefon_business
 
+
+
     def contact(self):
         print(f"Wybieram numer służbowy {self.telefon_business} i dzwonię do {self.imie} {self.nazwisko}")
-        print('dlugość imienia i nazwiska: ',  self.label_length)
+        print('dlugość imienia i nazwiska:',self.label_lenght)
+
+
 
 
 def create_contacts(rodzaj, ilosc):
